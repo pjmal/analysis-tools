@@ -72,7 +72,8 @@ def make_zoomin_unigrid_densitycube(simulation,pixcm,flashlevel,xmin,xmax,ymin,y
 def make_columndensity(density,pixcm,ax,change_to_radmc_direction=1):
     """Calculate 2D column density along the given axis of the density cube.
 
-    Assume density is given in g/cm**3 units. Convert column density to number of H2-molecules per cm**2 units. By default the resulting maps are rotated to the same direction as radmc3d gives for synthetic observation maps.
+    Assume density is given in g/cm**3 units. Convert column density to number of H2-molecules per cm**2 units. By default
+    the resulting maps are rotated to the same direction as radmc3d gives for synthetic observation maps.
     """
     print('calculate column density for axis %s' % ax)
     cdens = np.sum(density, ax) * pixcm/(MU_H2*MH)
@@ -124,14 +125,16 @@ def plot_cdens_pdf_fit(cdensfile,titletxt,imagename,cdens_bins,norm=False,vertic
     norm: normalized histogram [True], default: False
     verticals: array of x-axis coordinates for marking vertical lines, default: []
     vcolors: array of colors for marking vertical lines, required to be the same length as verticals, default: []
-    fit: True: fit function 'function' to the histogram in the range [xmin_fit,xmax_fit], assumes all necessary parameters are given, default: False
+    fit: True: fit function 'function' to the histogram in the range [xmin_fit,xmax_fit], assumes all necessary parameters
+    are given, default: False
     function: name of the function used in fitting, default: None
     xmin_fit: lower limit for fitting, given as an exponent of 10 (ie. the limit value is 10**xmin_fit), default: None
     xmax_fit: upper limit for fitting, given as an exponent of 10 (ie. the limit value is 10**xmax_fit), default: None
     """
     plt.clf()
     cdens = read_fits_data(cdensfile)
-    # hist returns: n: values of the histogram bins, bins: edges of the bins, patches: silent list of individual patches used to create the histogram
+    # hist returns: n: values of the histogram bins, bins: edges of the bins
+    # patches: silent list of individual patches used to create the histogram
     if(norm):
         n, bins, patches = plt.hist(np.log10(np.ravel(cdens)),bins=cdens_bins,normed=True,histtype='step',log=True)
         plt.ylabel('Normalized pixel count', size=18)
