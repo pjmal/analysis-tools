@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 """Food group recommender based on the nutrient content of different food groups.
 
-Use USDA Food Database data given in https://github.com/wesm/pydata-book. The data initialization techniques are directly based on the example codes given in the book. These parts are marked below in the code. 
+Use USDA Food Database data given in https://github.com/wesm/pydata-book. The data initialization techniques are 
+directly based on the example codes given in the book. These parts are marked below in the code. 
 """
 import json
 import pandas as pd
@@ -46,7 +47,8 @@ def initialize_nutrient_data():
 def food_group_nutrient_contents(ndata,nutrient,imagebase):
     """Calculate nutrient content in each food group.
 
-    Make a plot of the median values of the chosen nutrient in each food group. Calculate how much of the chosen nutrient each food group contains on average. The median value plot is an example from the book https://github.com/wesm/pydata-book.
+    Make a plot of the median values of the chosen nutrient in each food group. Calculate how much of the chosen nutrient each 
+    food group contains on average. The median value plot is an example from the book https://github.com/wesm/pydata-book.
     Parameters:
     ndata: [DataFrame object] nutrient database
     nutrient: name of the nutrient which should be included
@@ -139,13 +141,13 @@ def recommend_food_groups(ndata,imagebase,does_have=[],does_not_have=[],strictne
 # test example
 ndata = initialize_nutrient_data()
 
-does_have = ['Protein','Fiber, total dietary']
-does_not_have = ['Starch','Energy']
+have = ['Protein','Fiber, total dietary']
+not_have = ['Starch','Energy']
 
 imagebase = 'food_groups_'
 
-strictness_good = 12  # take into account this number of good products (for each nutrient)
-strictness_bad = 5    # take into account this number of bad products (for each nutrient)
+strict_good = 12  # take into account this number of good products (for each nutrient)
+strict_bad = 5    # take into account this number of bad products (for each nutrient)
 
-recommend_food_groups(ndata,imagebase,does_have=does_have,does_not_have=does_not_have,strictness_good=strictness_good,strictness_bad=strictness_bad)
+recommend_food_groups(ndata,imagebase,does_have=have,does_not_have=not_have,strictness_good=strict_good,strictness_bad=strict_bad)
 
