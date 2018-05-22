@@ -46,7 +46,7 @@ def initialize_nutrient_data():
 def food_group_nutrient_contents(ndata,nutrient,imagebase):
     """Calculate nutrient content in each food group.
 
-    Make a plot of the median values of the chosen nutrient in each food group. Calculate how much of the chosen nutrient each food group contains on average.
+    Make a plot of the median values of the chosen nutrient in each food group. Calculate how much of the chosen nutrient each food group contains on average. The median value plot is an example from the book https://github.com/wesm/pydata-book.
     Parameters:
     ndata: [DataFrame object] nutrient database
     nutrient: name of the nutrient which should be included
